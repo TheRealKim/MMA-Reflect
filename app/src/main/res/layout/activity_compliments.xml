@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical">
+
+    <Switch
+        android:text = "Show"
+        android:id="@+id/switch_compliments"
+        style="@style/SwitchCompatStyle"
+        android:checked="true" />
+
+    <EditText
+        android:id="@+id/add_compliments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/add_compliment"
+        android:maxLines="1"
+        android:inputType="textCapWords"
+        android:cursorVisible="false"/>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
+        android:text="submit"
+        android:layout_gravity="center_horizontal"
+        android:onClick="submit"/>
+ </LinearLayout>
