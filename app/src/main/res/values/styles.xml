@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorSecondary</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -21,10 +22,9 @@
         <item name="colorControlActivated">@color/colorSecondary</item>
         <item name="colorSwitchThumbNormal">@color/textColorLight</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_gravity">center_vertical|right</item>
-        <item name="android:layout_marginLeft">@dimen/switch_horizontal_margin</item>
-        <item name="android:thumbTextPadding">40dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:layout_marginRight">@dimen/switch_horizontal_margin</item>
     </style>
 
     <style name="ModuleStyle">
@@ -49,6 +49,19 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
+    </style>
+
+    <style name="PreferenceThemeOverlay">
+        <item name="preferenceScreenStyle">@style/Preference.PreferenceScreen</item>
+        <item name="preferenceFragmentStyle">@style/PreferenceFragment</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Category</item>
+        <item name="preferenceStyle">@style/Preference</item>
+        <item name="preferenceInformationStyle">@style/Preference.Information</item>
+        <item name="checkBoxPreferenceStyle">@style/Preference.CheckBoxPreference</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.SwitchPreferenceCompat</item>
+        <item name="dialogPreferenceStyle">@style/Preference.DialogPreference</item>
+        <item name="editTextPreferenceStyle">@style/Preference.DialogPreference.EditTextPreference</item>
+        <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList</item>
     </style>
 
 </resources>

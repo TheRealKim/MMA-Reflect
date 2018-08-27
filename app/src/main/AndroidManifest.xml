@@ -27,11 +27,23 @@
             android:label="@string/activity_settings"
             android:name="com.example.kvande73.reflect.SettingsActivity"/>
         <activity
-            android:label="Calendar"
+            android:label="@string/module_calendar"
             android:name=".CalendarActivity"/>
+        <activity
+            android:label="@string/module_clock"
+            android:name=".ClockActivity"/>
         <activity
             android:label="@string/module_compliments"
             android:name=".ComplimentsActivity"/>
+        <activity
+            android:label="@string/module_currentweather"
+            android:name=".CurrentWeatherActivity"/>
+        <activity
+            android:label="@string/module_news"
+            android:name=".NewsfeedActivity"/>
+        <activity
+            android:label="@string/module_weatherforecast"
+            android:name=".WeatherForecastActivity"/>
     </application>
 
 </manifest>

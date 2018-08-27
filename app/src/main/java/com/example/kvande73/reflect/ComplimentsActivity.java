@@ -23,67 +23,6 @@ public class ComplimentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compliments);
-
-
-        Switch onOffSwitch = (Switch) findViewById(R.id.switch_compliments);
-        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    String URL = "http://192.168.86.30:8080/remote?action=SHOW&module=module_4_compliments";
-
-                    RequestQueue requestQueue= Volley.newRequestQueue(com.example.kvande73.reflect.ComplimentsActivity.this);
-
-                    JsonObjectRequest objectRequest = new JsonObjectRequest(
-                            Request.Method.GET,
-                            URL,
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Log.e("Rest Response", response.toString());
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Rest Response", error.toString());
-
-                                }
-                            }
-                    );
-                    requestQueue.add(objectRequest);
-                }
-                else {
-                    String URL = "http://192.168.86.30:8080/remote?action=HIDE&module=module_4_compliments";
-
-                    RequestQueue requestQueue= Volley.newRequestQueue(com.example.kvande73.reflect.ComplimentsActivity.this);
-
-                    JsonObjectRequest objectRequest = new JsonObjectRequest(
-                            Request.Method.GET,
-                            URL,
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Log.e("Rest Response", response.toString());
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Rest Response", error.toString());
-
-                                }
-                            }
-                    );
-                    requestQueue.add(objectRequest);
-                }
-            }
-
-        });
-
     }
 
     public String getCompliment() {

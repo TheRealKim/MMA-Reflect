@@ -1,6 +1,7 @@
 package com.example.kvande73.reflect;
 
 import android.os.Bundle;
+import android.app.Activity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -51,106 +52,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //CALENDARMODULE on main screen
-        TextView calendar = findViewById(R.id.calendar);
-        calendar.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View view) {
-            //    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            //            .setAction("Action", null).show();
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link CalendarActivity}
-                Intent CalendarIntent = new Intent(MainActivity.this, CalendarActivity.class);
+        moduleListener("calendar", CalendarActivity.class);
+        switchListener("module_3_calendar", "switch_calendar");
 
-                // Start the new activity
-                startActivity(CalendarIntent);
-            }
-
-        });
-
-        //CALENDARSWITCH
-        Switch onOffSwitch = (Switch) findViewById(R.id.switch_calendar);
-        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                String ip = getString(R.string.ip_address_mirror);
-                String module = "module_3_calendar";
-                if (isChecked){
-
-                    String path = getString(R.string.endpoint_show);
-                    String URL = ip + path + module;
-
-                    RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
-
-                    JsonObjectRequest objectRequest = new JsonObjectRequest(
-                            Request.Method.GET,
-                            URL,
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Log.e("Rest Response", response.toString());
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Rest Response", error.toString());
-
-                                }
-                            }
-                    );
-                    requestQueue.add(objectRequest);
-                }
-                else {
-                    String path = getString(R.string.endpoint_hide);
-                    String URL = ip + path + module;
-
-                    RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
-
-                    JsonObjectRequest objectRequest = new JsonObjectRequest(
-                            Request.Method.GET,
-                            URL,
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Log.e("Rest Response", response.toString());
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Rest Response", error.toString());
-
-                                }
-                            }
-                    );
-                    requestQueue.add(objectRequest);
-                }
-            }
-
-        });
+        //CLOCK
+        moduleListener("clock", ClockActivity.class);
+        switchListener("module_2_clock", "switch_clock");
 
         //COMPLIMENTSMODULE on main screen
-        TextView compliments = findViewById(R.id.compliments);
-        compliments.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View view) {
-            //    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            //            .setAction("Action", null).show();
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link CalendarActivity}
-                Intent ComplimentsIntent = new Intent(MainActivity.this, ComplimentsActivity.class);
+        moduleListener("compliments", ComplimentsActivity.class);
+        switchListener("module_4_compliments", "switch_compliments");
 
-                // Start the new activity
-                startActivity(ComplimentsIntent);
-            }
+        //CURRENTWEATHER
+        moduleListener("currentweather", CurrentWeatherActivity.class);
+        switchListener("module_5_currentweather", "switch_currentweather");
 
-        });
+        //NEWSFEED
+        moduleListener("newsfeed", NewsfeedActivity.class);
+        switchListener("module_7_newsfeed", "switch_newsfeed");
 
+        //WEATHERFORECAST
+        moduleListener("weatherforecast", WeatherForecastActivity.class);
+        switchListener("module_6_weatherforecast", "switch_weatherforecast");
     }
 
     @Override
@@ -177,5 +100,92 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void switchListener(String module, String switchID) {
+        int resID = getResources().getIdentifier(switchID, "id", getPackageName());
+        Switch onOffSwitch = (Switch) findViewById(resID);
+        final String modulename = module;
+
+        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                String ip = getString(R.string.ip_address_mirror);
+                if (isChecked){
+
+                    String path = getString(R.string.endpoint_show);
+                    String URL = ip + path + modulename;
+
+                    RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
+
+                    JsonObjectRequest objectRequest = new JsonObjectRequest(
+                            Request.Method.GET,
+                            URL,
+                            null,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Log.e("Rest Response", response.toString());
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("Rest Response", error.toString());
+
+                                }
+                            }
+                    );
+                    requestQueue.add(objectRequest);
+                }
+                else {
+                    String path = getString(R.string.endpoint_hide);
+                    String URL = ip + path + modulename;
+
+                    RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
+
+                    JsonObjectRequest objectRequest = new JsonObjectRequest(
+                            Request.Method.GET,
+                            URL,
+                            null,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Log.e("Rest Response", response.toString());
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("Rest Response", error.toString());
+
+                                }
+                            }
+                    );
+                    requestQueue.add(objectRequest);
+                }
+            }
+
+        });
+    }
+
+    public void moduleListener(String module, final Class<? extends Activity> moduleActivity ){
+        int resID = getResources().getIdentifier(module, "id", getPackageName());
+        View moduleview = findViewById(resID);
+        moduleview.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view) {
+            //    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            //            .setAction("Action", null).show();
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link CalendarActivity}
+                Intent ModuleIntent = new Intent(MainActivity.this, moduleActivity);
+
+                // Start the new activity
+                startActivity(ModuleIntent);
+            }
+
+        });
+    }
 
 }

@@ -2,7 +2,7 @@
 <resources>
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
-    <string name="ip_address_mirror">http://192.168.0.186:8080</string>
+    <string name="ip_address_mirror">http://192.168.1.7:8080</string>
     <string name="endpoint_clarity">/remote?action=BRIGHTNESS&amp;value=</string>
     <string name="endpoint_show">/remote?action=SHOW&amp;module=</string>
     <string name="endpoint_hide">/remote?action=HIDE&amp;module=</string>

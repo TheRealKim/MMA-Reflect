@@ -31,6 +31,7 @@
                -->
 
                 <FrameLayout
+                    android:id="@+id/calendar"
                     android:background="@drawable/rounded_corner"
                     style="@style/ModuleStyle">
                     <LinearLayout
@@ -38,15 +39,38 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/calendar"
-                            style="@style/ModuleText"
-                            android:text="Calendar" />
-
                         <Switch
                             android:id="@+id/switch_calendar"
                             style="@style/SwitchCompatStyle"
                             android:checked="true" />
+
+                        <TextView
+                            style="@style/ModuleText"
+                            android:text="Calendar" />
+
+
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/clock"
+                    android:background="@drawable/rounded_corner"
+                    style="@style/ModuleStyle">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Switch
+                            android:id="@+id/switch_clock"
+                            style="@style/SwitchCompatStyle"
+                            android:checked="true" />
+
+                        <TextView
+                            style="@style/ModuleText"
+                            android:text="@string/module_clock" />
+
+
                     </LinearLayout>
                 </FrameLayout>
 
@@ -65,29 +89,115 @@
                 android:background="@drawable/rounded_corner"
                 android:text="@string/module_weather" />
 -->
-            <TextView
+
+
+            <FrameLayout
                 android:id="@+id/compliments"
-                style="@style/ModuleStyle"
                 android:background="@drawable/rounded_corner"
-                android:text="@string/module_compliments" />
-<!--
-            <TextView
-                android:id="@+id/fitbit"
-                style="@style/CategoryStyle"
-                android:background="@drawable/rounded_corner"
-                android:text="@string/module_fitbit" />
+                style="@style/ModuleStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/nokia"
-                style="@style/CategoryStyle"
-                android:background="@drawable/rounded_corner"
-                android:text="@string/module_nokia" />
+                    <Switch
+                        android:id="@+id/switch_compliments"
+                        style="@style/SwitchCompatStyle"
+                        android:checked="true" />
 
-            <TextView
-                android:id="@+id/remotecontrol"
-                style="@style/CategoryStyle"
+                    <TextView
+                        style="@style/ModuleText"
+                        android:text="@string/module_compliments" />
+
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/currentweather"
                 android:background="@drawable/rounded_corner"
-                android:text="@string/module_remotecontrol" /> -->
+                style="@style/ModuleStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switch_currentweather"
+                        style="@style/SwitchCompatStyle"
+                        android:checked="true" />
+
+                    <TextView
+                        style="@style/ModuleText"
+                        android:text="@string/module_currentweather" />
+
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/newsfeed"
+                android:background="@drawable/rounded_corner"
+                style="@style/ModuleStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switch_newsfeed"
+                        style="@style/SwitchCompatStyle"
+                        android:checked="true" />
+
+                    <TextView
+                        style="@style/ModuleText"
+                        android:text="@string/module_news" />
+
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/weatherforecast"
+                android:background="@drawable/rounded_corner"
+                style="@style/ModuleStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switch_weatherforecast"
+                        style="@style/SwitchCompatStyle"
+                        android:checked="true" />
+
+                    <TextView
+                        style="@style/ModuleText"
+                        android:text="@string/module_weatherforecast" />
+
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+
+            <!--           <TextView
+                           android:id="@+id/fitbit"
+                           style="@style/CategoryStyle"
+                           android:background="@drawable/rounded_corner"
+                           android:text="@string/module_fitbit" />
+
+                       <TextView
+                           android:id="@+id/nokia"
+                           style="@style/CategoryStyle"
+                           android:background="@drawable/rounded_corner"
+                           android:text="@string/module_nokia" />
+
+                       <TextView
+                           android:id="@+id/remotecontrol"
+                           style="@style/CategoryStyle"
+                           android:background="@drawable/rounded_corner"
+                           android:text="@string/module_remotecontrol" /> -->
 
         </LinearLayout>
     </ScrollView>

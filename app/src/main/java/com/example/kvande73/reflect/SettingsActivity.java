@@ -2,7 +2,10 @@ package com.example.kvande73.reflect;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+//import android.preference.PreferenceGroup;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.EditText;
@@ -14,13 +17,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONObject;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceGroup;
+
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+//import android.preference.PreferenceFragment;
+import android.support.v7.preference.SeekBarPreference;
+import android.support.v7.preference.PreferenceManager;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+    }
+}
 
-    private SeekBar seekbar;
+/*    private SeekBar seekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
                 String path = getString(R.string.endpoint_clarity);
                 String URL = ip + path + progressChangedValue;
 
-                RequestQueue requestQueue=Volley.newRequestQueue(SettingsActivity.this);
+                RequestQueue requestQueue = Volley.newRequestQueue(SettingsActivity.this);
 
                 JsonObjectRequest objectRequest = new JsonObjectRequest(
                         Request.Method.GET,
@@ -70,17 +85,16 @@ public class SettingsActivity extends AppCompatActivity {
 
                             }
                         }
-                    );
+                );
                 requestQueue.add(objectRequest);
 
             }
         });
 
 
-
-
     }
-
+}
+*/
 
 
     //public String getConfig(String elem_config) {
@@ -91,7 +105,5 @@ public class SettingsActivity extends AppCompatActivity {
    // }
 
 
-
-}
 
 
